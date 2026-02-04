@@ -1,8 +1,8 @@
-# 💰 Ledify - Retro Finance Tracking 💰
+# 📱 Ledify - Digital Event Signage 📱
 
 <div align="center">
 
-![Ledify Banner](https://img.shields.io/badge/LEDIFY-PIXEL%20PERFECT%20FINANCE-FF10F0?style=for-the-badge&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAESSURBVHjaYvz//z8DJYCJgUIwqnH4a2RhYGBgYGRkZGBkZGRgYmJiYGZmZmBhYWFgY2NjYGdnZ+Dg4GDg5ORk4OLiYuDm5mbg4eFh4OXlZeDj42Pg5+dn+Pv3LwMDAwPDjx8/GP7+/cvw58+f/3///v3/9+/f/7///mX49+8fw79//xj+//8PEoNp/P//P8P///8Z/v37x/D//38GBgYGBkZGRgZGRkYGJiYmBmZmZgYWFhYGNjY2BnZ2dgYODg4GTk5OBi4uLgZubm4GHh4eBl5eXgY+Pj4Gfn5+hv///zP8//+fgYGBgeHv378M////Z/j37x/D379/Gf78+cPw+/dvht+/fzP8+vWL4devXwy/fv1i+P37N8Pv378ZGBgYGAAGAKZwgNjdIv6hAAAAAElFTkSuQmCC)
+![Ledify Banner](https://img.shields.io/badge/LEDIFY-PIXEL%20PERFECT%20SIGNAGE-FF10F0?style=for-the-badge&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAESSURBVHjaYvz//z8DJYCJgUIwqnH4a2RhYGBgYGRkZGBkZGRgYmJiYGZmZmBhYWFgY2NjYGdnZ+Dg4GDg5ORk4OLiYuDm5mbg4eFh4OXlZeDj42Pg5+dn+Pv3LwMDAwPDjx8/GP7+/cvw58+f/3///v3/9+/f/7///mX49+8fw79//xj+//8PEoNp/P//P8P///8Z/v37x/D//38GBgYGBkZGRgZGRkYGJiYmBmZmZgYWFhYGNjY2BnZ2dgYODg4GTk5OBi4uLgZubm4GHh4eBl5eXgY+Pj4Gfn5+hv///zP8//+fgYGBgeHv378M////Z/j37x/D379/Gf78+cPw+/dvht+/fzP8+vWL4devXwy/fv1i+P37N8Pv378ZGBgYGAAGAKZwgNjdIv6hAAAAAElFTkSuQmCC)
 
 [![Made with Love](https://img.shields.io/badge/Made%20with-%E2%9D%A4-00F0FF?style=for-the-badge)](https://whizbangapps.com)
 [![Retro Style](https://img.shields.io/badge/Style-RETRO%202D-FFF000?style=for-the-badge)](https://whizbangapps.github.io/Ledify/)
@@ -12,16 +12,16 @@
 
 ## 🎮 About Ledify
 
-**Ledify** is a revolutionary finance tracking app that brings nostalgic 2D pixel-art aesthetics to modern money management. Experience the thrill of leveling up your savings with retro gaming vibes while staying on top of your budget!
+**Ledify** is a dynamic digital signage app that transforms your iPhone into an eye-catching animated display. Perfect for concerts, birthdays, sporting events, and celebrations, Ledify brings nostalgic 2D pixel-art aesthetics to modern event signage with vibrant neon effects and retro animations!
 
 ### ⚡ Key Features
 
-- **🕹️ Retro Interface** - Navigate your finances with a nostalgic pixel-perfect 2D interface
-- **📊 Power-Up Tracking** - Level up your savings with arcade-style progress tracking
-- **💎 Coin Collector** - Track transactions like collecting coins in classic platformers
-- **🎯 Achievement System** - Unlock badges and achievements as you hit financial goals
-- **📈 Visual Feedback** - Satisfying retro animations and effects for every action
-- **🔒 Secure & Private** - Your financial data stays encrypted and private
+- **🕹️ Retro Animations** - Pixel-perfect 2D graphics with nostalgic arcade-style effects
+- **🎨 Dynamic Themes** - Neon glows, scrolling text, and pulsing animations for maximum impact
+- **✨ Custom Messages** - Create personalized signs for any event or occasion
+- **🎯 Quick Templates** - Pre-made designs for concerts, birthdays, sports, and celebrations
+- **📱 Fullscreen Mode** - Maximize your display to be seen from anywhere in the crowd
+- **🔒 Privacy First** - Your messages stay on your device unless you choose to share
 
 ## 🌐 Visit Our Page
 
@@ -29,13 +29,13 @@ Check out the official Ledify landing page: [whizbangapps.github.io/Ledify](http
 
 ## 🎨 Design Philosophy
 
-Ledify combines the nostalgia of 80s/90s arcade games with modern financial tracking capabilities:
+Ledify combines the nostalgia of 80s/90s arcade games with modern digital signage:
 
-- **Neon Color Palette** - Vibrant pinks, cyans, yellows, and purples
-- **CRT Monitor Effects** - Scanlines and grid backgrounds for authentic retro feel
-- **Pixel-Art Graphics** - Clean, sharp 2D graphics inspired by classic games
-- **Arcade Sound Design** - Satisfying sound effects for every interaction
-- **Gamification** - Turn budgeting into an engaging experience
+- **Neon Color Palette** - Vibrant pinks, cyans, yellows, and purples that pop in any lighting
+- **CRT Monitor Effects** - Scanlines and grid backgrounds for authentic retro concert vibes
+- **Pixel-Art Graphics** - Clean, sharp 2D graphics inspired by classic arcade screens
+- **Dynamic Animations** - Scrolling text, pulsing effects, and attention-grabbing motion
+- **Event-Ready** - Optimized for visibility in crowds, concerts, and celebrations
 
 ## 🚀 Technologies
 
@@ -54,10 +54,10 @@ Ledify combines the nostalgia of 80s/90s arcade games with modern financial trac
 
 ## 🔐 Privacy & Security
 
-Your financial data is important. Ledify:
-- Encrypts all data in transit and at rest
-- Stores data locally by default
-- Offers optional encrypted cloud sync
+Your messages are your own. Ledify:
+- Stores all messages locally on your device by default
+- Encrypts data in transit and at rest
+- Offers optional encrypted cloud sync for saved signs
 - Never sells your data to third parties
 
 Read our full [Privacy Policy](https://whizbangapps.github.io/Ledify/privacy.html)
@@ -85,6 +85,6 @@ Copyright © 2024 WhizbangApps. All rights reserved.
 
 **Made with 💖 and ⚡ by WhizbangApps**
 
-*Level up your finances the retro way!*
+*Light up the crowd with retro-style digital signage!*
 
 </div>
