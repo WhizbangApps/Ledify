@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Ledify</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --neon-pink: #FF10F0;
+            --neon-cyan: #00F0FF;
+            --neon-yellow: #FFF000;
+            --neon-purple: #BD00FF;
+            --retro-dark: #0D0221;
+            --retro-bg: #1A0B2E;
+            --retro-grid: #16213E;
+            --pixel-white: #F0F0F0;
+            --arcade-red: #FF0040;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: var(--retro-bg);
+            color: var(--pixel-white);
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Retro grid background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                linear-gradient(0deg, transparent 24%, rgba(0, 240, 255, 0.05) 25%, rgba(0, 240, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 240, 255, 0.05) 75%, rgba(0, 240, 255, 0.05) 76%, transparent 77%, transparent),
+                linear-gradient(90deg, transparent 24%, rgba(0, 240, 255, 0.05) 25%, rgba(0, 240, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 240, 255, 0.05) 75%, rgba(0, 240, 255, 0.05) 76%, transparent 77%, transparent);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Scanline effect */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.15),
+                rgba(0, 0, 0, 0.15) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(13, 2, 33, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 3px solid var(--neon-cyan);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, var(--neon-pink), var(--neon-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(255, 16, 240, 0.5);
+            letter-spacing: 4px;
+            text-decoration: none;
+        }
+
+        .back-link {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        /* Privacy Content */
+        .privacy-content {
+            padding: 4rem 0;
+        }
+
+        .privacy-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .privacy-header h1 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            background: linear-gradient(135deg, var(--neon-yellow), var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .privacy-header p {
+            color: var(--neon-cyan);
+            font-size: 1.1rem;
+        }
+
+        .privacy-section {
+            background: linear-gradient(135deg, rgba(26, 11, 46, 0.6), rgba(13, 2, 33, 0.6));
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--neon-purple);
+            box-shadow: 0 0 20px rgba(189, 0, 255, 0.3);
+        }
+
+        .privacy-section h2 {
+            color: var(--neon-cyan);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .privacy-section h2::before {
+            content: '▸ ';
+            color: var(--neon-pink);
+        }
+
+        .privacy-section p,
+        .privacy-section ul {
+            color: var(--pixel-white);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .privacy-section ul {
+            list-style: none;
+            padding-left: 1.5rem;
+        }
+
+        .privacy-section li {
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .privacy-section li::before {
+            content: '◆';
+            color: var(--neon-yellow);
+            position: absolute;
+            left: -1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--retro-dark);
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 3px solid var(--neon-pink);
+            box-shadow: 0 0 20px rgba(255, 16, 240, 0.3);
+            margin-top: 4rem;
+        }
+
+        footer p {
+            color: var(--pixel-white);
+        }
+
+        footer a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .privacy-header h1 {
+                font-size: 2rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .privacy-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">⚡ LEDIFY ⚡</a>
+            <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        </nav>
+    </header>
+
+    <main class="privacy-content">
+        <div class="container">
+            <div class="privacy-header">
+                <h1>🔒 Privacy Policy 🔒</h1>
+                <p>Last Updated: February 2024</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2>Introduction</h2>
+                <p>Welcome to Ledify! We respect your privacy and are committed to protecting your personal data. This privacy policy explains how we handle your information when you use our retro-styled finance tracking application.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2>Information We Collect</h2>
+                <p>Ledify collects the following types of information:</p>
+                <ul>
+                    <li>Financial transaction data you manually enter into the app</li>
+                    <li>Account categories and budget settings</li>
+                    <li>App usage statistics and preferences</li>
+                    <li>Device information for app optimization</li>
+                </ul>
+            </div>
+
+            <div class="privacy-section">
+                <h2>How We Use Your Data</h2>
+                <p>Your data is used exclusively to:</p>
+                <ul>
+                    <li>Provide you with accurate financial tracking and reporting</li>
+                    <li>Generate personalized insights and spending patterns</li>
+                    <li>Improve app performance and user experience</li>
+                    <li>Sync your data across your devices (if enabled)</li>
+                </ul>
+            </div>
+
+            <div class="privacy-section">
+                <h2>Data Storage & Security</h2>
+                <p>We take your financial data security seriously:</p>
+                <ul>
+                    <li>All data is encrypted both in transit and at rest</li>
+                    <li>We use industry-standard security protocols</li>
+                    <li>Your financial data is stored locally on your device by default</li>
+                    <li>Cloud sync is optional and uses end-to-end encryption</li>
+                </ul>
+            </div>
+
+            <div class="privacy-section">
+                <h2>Third-Party Services</h2>
+                <p>Ledify may integrate with third-party services:</p>
+                <ul>
+                    <li>Analytics services to improve app functionality</li>
+                    <li>Cloud storage providers (only if you enable sync)</li>
+                    <li>Banking APIs (with your explicit permission)</li>
+                </ul>
+                <p>We do not sell or share your personal financial data with third parties for marketing purposes.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2>Your Rights</h2>
+                <p>You have the right to:</p>
+                <ul>
+                    <li>Access all data we store about you</li>
+                    <li>Request deletion of your account and all associated data</li>
+                    <li>Export your financial data in standard formats</li>
+                    <li>Opt out of analytics and data collection</li>
+                    <li>Disable cloud sync at any time</li>
+                </ul>
+            </div>
+
+            <div class="privacy-section">
+                <h2>Children's Privacy</h2>
+                <p>Ledify is not intended for users under the age of 13. We do not knowingly collect personal information from children under 13.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2>Changes to This Policy</h2>
+                <p>We may update this privacy policy from time to time. We will notify you of any significant changes through the app or via email.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2>Contact Us</h2>
+                <p>If you have questions about this privacy policy or how we handle your data, please contact us at:</p>
+                <p><strong>privacy@whizbangapps.com</strong></p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Ledify - WhizbangApps. All rights reserved.</p>
+            <p><a href="index.html">Back to Home</a></p>
+        </div>
+    </footer>
+</body>
+</html>

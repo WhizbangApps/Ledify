@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ledify - Retro Finance Tracking</title>
+    <meta name="description" content="Track your finances with nostalgic 2D pixel-perfect style">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --neon-pink: #FF10F0;
+            --neon-cyan: #00F0FF;
+            --neon-yellow: #FFF000;
+            --neon-purple: #BD00FF;
+            --retro-dark: #0D0221;
+            --retro-bg: #1A0B2E;
+            --retro-grid: #16213E;
+            --pixel-white: #F0F0F0;
+            --arcade-red: #FF0040;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: var(--retro-bg);
+            color: var(--pixel-white);
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Retro grid background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                linear-gradient(0deg, transparent 24%, rgba(0, 240, 255, 0.05) 25%, rgba(0, 240, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 240, 255, 0.05) 75%, rgba(0, 240, 255, 0.05) 76%, transparent 77%, transparent),
+                linear-gradient(90deg, transparent 24%, rgba(0, 240, 255, 0.05) 25%, rgba(0, 240, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 240, 255, 0.05) 75%, rgba(0, 240, 255, 0.05) 76%, transparent 77%, transparent);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Scanline effect */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.15),
+                rgba(0, 0, 0, 0.15) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(13, 2, 33, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 3px solid var(--neon-cyan);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, var(--neon-pink), var(--neon-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(255, 16, 240, 0.5);
+            letter-spacing: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--neon-pink);
+            transition: width 0.3s;
+            box-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--retro-dark), var(--retro-bg));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '💰💎💵💳💰💎💵💳💰💎💵💳';
+            position: absolute;
+            top: 20%;
+            left: -10%;
+            font-size: 4rem;
+            opacity: 0.1;
+            animation: scroll-left 20s linear infinite;
+        }
+
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            background: linear-gradient(135deg, var(--neon-yellow), var(--neon-pink), var(--neon-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow-pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes glow-pulse {
+            0%, 100% { filter: drop-shadow(0 0 20px var(--neon-pink)); }
+            50% { filter: drop-shadow(0 0 40px var(--neon-cyan)); }
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            border: 3px solid var(--neon-pink);
+            box-shadow: 0 0 30px rgba(255, 16, 240, 0.6);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 50px rgba(255, 16, 240, 0.9);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+            background: var(--retro-dark);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: var(--neon-yellow);
+            text-shadow: 0 0 20px var(--neon-yellow);
+        }
+
+        .section-title::before,
+        .section-title::after {
+            content: '◆';
+            margin: 0 1rem;
+            color: var(--neon-cyan);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(26, 11, 46, 0.8), rgba(13, 2, 33, 0.8));
+            padding: 2rem;
+            border: 3px solid var(--neon-cyan);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent, rgba(0, 240, 255, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 40px rgba(255, 16, 240, 0.6);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--neon-pink), var(--neon-yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .feature-card p {
+            color: var(--pixel-white);
+            line-height: 1.8;
+        }
+
+        /* Screenshots Section */
+        .screenshots {
+            padding: 5rem 0;
+            background: var(--retro-bg);
+        }
+
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .screenshot-box {
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, var(--retro-grid), var(--retro-dark));
+            border: 3px solid var(--neon-purple);
+            box-shadow: 0 0 20px rgba(189, 0, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .screenshot-box::before {
+            content: 'PIXEL\APERFECT';
+            position: absolute;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.1);
+            letter-spacing: 2px;
+            white-space: pre;
+        }
+
+        .screenshot-box:hover {
+            transform: scale(1.05);
+            border-color: var(--neon-yellow);
+            box-shadow: 0 0 40px rgba(255, 240, 0, 0.6);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--retro-dark), var(--retro-bg));
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--neon-pink);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 0 20px var(--neon-pink);
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--neon-cyan);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--retro-dark);
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 3px solid var(--neon-pink);
+            box-shadow: 0 0 20px rgba(255, 16, 240, 0.3);
+        }
+
+        footer p {
+            color: var(--pixel-white);
+            margin-bottom: 1rem;
+        }
+
+        footer a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+                letter-spacing: 3px;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+                letter-spacing: 2px;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .nav-links a {
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">⚡ LEDIFY ⚡</div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#screenshots">Screens</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>💰 LEDIFY 💰</h1>
+            <p>Pixel-Perfect Finance Tracking</p>
+            <a href="#features" class="cta-button">Start Your Journey</a>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Epic Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Retro Interface</h3>
+                    <p>Navigate your finances with a nostalgic 2D pixel-perfect interface that makes budgeting feel like playing your favorite classic game.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Power-Up Tracking</h3>
+                    <p>Level up your savings with arcade-style progress tracking. Watch your wealth grow with satisfying visual feedback and achievements.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3>Coin Collector</h3>
+                    <p>Track every transaction like collecting coins in a retro platformer. Categorize, visualize, and optimize your spending habits.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="screenshots" class="screenshots">
+        <div class="container">
+            <h2 class="section-title">Screenshots</h2>
+            <div class="screenshots-grid">
+                <div class="screenshot-box">📊</div>
+                <div class="screenshot-box">💳</div>
+                <div class="screenshot-box">📈</div>
+                <div class="screenshot-box">💰</div>
+                <div class="screenshot-box">🎮</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Level Up?</h2>
+            <p>Start tracking your finances the retro way</p>
+            <a href="#" class="cta-button">Download Now</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Ledify - WhizbangApps. All rights reserved.</p>
+            <p><a href="privacy.html">Privacy Policy</a></p>
+        </div>
+    </footer>
+</body>
+</html>
